@@ -1,0 +1,65 @@
+name: Sync version with upstream ModBridge
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ha-modbridge
+        uses: actions/checkout@v4
+
+      - name: Fetch upstream version
+        id: upstream
+        run: |
+          VERSION=$(curl -fsSL https://raw.githubusercontent.com/Xerolux/modbridge/main/version.txt | tr -d '[:space:]')
+          if ! [[ "$VERSION" =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+            echo "Invalid upstream version: $VERSION"; exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check local version
+        id: local
+        run: |
+          VERSION=$(python3 -c "import json;print(json.load(open('custom_components/modbridge/manifest.json'))['version'])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Bump version
+        if: steps.upstream.outputs.version != steps.local.outputs.version
+        run: |
+          python - <<'EOF'
+          import json, re
+          from pathlib import Path
+          version = "${{ steps.upstream.outputs.version }}"
+          manifest = Path("custom_components/modbridge/manifest.json")
+          data = json.loads(manifest.read_text())
+          data["version"] = version
+          manifest.write_text(json.dumps(data, indent=2) + "\n")
+          readme = Path("README.md")
+          if readme.is_file():
+              text = readme.read_text()
+              text = re.sub(r"(?<=\*\*Version:\*\* )[^\s|]+", f"v{version}", text)
+              text = re.sub(r"(?<=badge/version-)[^-]+(?=-blue)", f"v{version}", text)
+              readme.write_text(text)
+          EOF
+
+      - name: Commit, tag and release
+        if: steps.upstream.outputs.version != steps.local.outputs.version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.upstream.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(release): sync version to ModBridge v${VERSION}"
+          git tag "v${VERSION}"
+          git push origin main --tags
+          gh release create "v${VERSION}" --title "ModBridge Integration v${VERSION}" \
+            --notes "Version synced with upstream ModBridge v${VERSION} (https://github.com/Xerolux/modbridge)."

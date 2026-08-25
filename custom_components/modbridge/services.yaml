@@ -1,0 +1,168 @@
+start_proxy:
+  name: Proxy starten
+  description: Startet einen einzelnen ModBridge-Proxy (setzt einen pausierten Proxy fort).
+  fields:
+    proxy_id:
+      name: Proxy-ID
+      description: ID des Proxys (aus den Entitäts-Attributen oder der ModBridge WebUI).
+      required: false
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+    proxy_name:
+      name: Proxy-Name
+      description: Name des Proxys in ModBridge (Alternative zur ID).
+      required: false
+      example: "Waermepumpe"
+      selector:
+        text:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+stop_proxy:
+  name: Proxy stoppen
+  description: Stoppt einen einzelnen ModBridge-Proxy.
+  fields:
+    proxy_id:
+      name: Proxy-ID
+      description: ID des Proxys.
+      required: false
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+    proxy_name:
+      name: Proxy-Name
+      description: Name des Proxys in ModBridge (Alternative zur ID).
+      required: false
+      example: "Waermepumpe"
+      selector:
+        text:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+restart_proxy:
+  name: Proxy neu starten
+  description: Startet einen einzelnen ModBridge-Proxy neu.
+  fields:
+    proxy_id:
+      name: Proxy-ID
+      description: ID des Proxys.
+      required: false
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+    proxy_name:
+      name: Proxy-Name
+      description: Name des Proxys in ModBridge (Alternative zur ID).
+      required: false
+      example: "Waermepumpe"
+      selector:
+        text:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+pause_proxy:
+  name: Proxy pausieren
+  description: Pausiert einen ModBridge-Proxy (bleibt aktiviert, lauscht aber nicht).
+  fields:
+    proxy_id:
+      name: Proxy-ID
+      description: ID des Proxys.
+      required: false
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+    proxy_name:
+      name: Proxy-Name
+      description: Name des Proxys in ModBridge (Alternative zur ID).
+      required: false
+      example: "Waermepumpe"
+      selector:
+        text:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+resume_proxy:
+  name: Proxy fortsetzen
+  description: Setzt einen pausierten ModBridge-Proxy fort.
+  fields:
+    proxy_id:
+      name: Proxy-ID
+      description: ID des Proxys.
+      required: false
+      example: "550e8400-e29b-41d4-a716-446655440000"
+      selector:
+        text:
+    proxy_name:
+      name: Proxy-Name
+      description: Name des Proxys in ModBridge (Alternative zur ID).
+      required: false
+      example: "Waermepumpe"
+      selector:
+        text:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+start_all:
+  name: Alle Proxys starten
+  description: Startet alle konfigurierten ModBridge-Proxys.
+  fields:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+stop_all:
+  name: Alle Proxys stoppen
+  description: Stoppt alle laufenden ModBridge-Proxys.
+  fields:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+restart_all:
+  name: Alle Proxys neu starten
+  description: Startet alle ModBridge-Proxys neu.
+  fields:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:
+
+restart_system:
+  name: ModBridge neu starten
+  description: Startet den ModBridge-Server-Prozess neu.
+  fields:
+    config_entry_id:
+      name: Config-Entry-ID
+      description: Optional, falls mehrere ModBridge-Server konfiguriert sind.
+      required: false
+      selector:
+        text:

@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ModBridge verbinden",
+        "description": "Verbinde Home Assistant mit deinem ModBridge-Server.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Benutzername",
+          "password": "Passwort",
+          "use_tls": "HTTPS verwenden",
+          "verify_ssl": "SSL-Zertifikat überprüfen"
+        }
+      },
+      "reauth_confirm": {
+        "title": "ModBridge-Zugangsdaten erneuern",
+        "description": "Die Anmeldung bei {host}:{port} ist fehlgeschlagen. Bitte neue Zugangsdaten eingeben.",
+        "data": {
+          "username": "Benutzername",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zu ModBridge fehlgeschlagen. Host, Port und TLS-Einstellung prüfen.",
+      "invalid_auth": "Ungültige Zugangsdaten.",
+      "password_change_required": "Dieses Konto muss zuerst sein Passwort ändern. Bitte einmal in der ModBridge WebUI anmelden und das Passwort ändern.",
+      "unknown": "Unerwarteter Fehler."
+    },
+    "abort": {
+      "already_configured": "Dieser ModBridge-Server ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ModBridge Optionen",
+        "data": {
+          "scan_interval": "Aktualisierungsintervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "connectivity": {
+        "name": "Verbindung"
+      }
+    },
+    "button": {
+      "restart_server": {
+        "name": "Server neu starten"
+      },
+      "restart_all_proxies": {
+        "name": "Alle Proxys neu starten"
+      }
+    },
+    "sensor": {
+      "running_proxies": { "name": "Laufende Proxys" },
+      "total_proxies": { "name": "Proxys gesamt" },
+      "active_connections": { "name": "Aktive Verbindungen" },
+      "requests": { "name": "Anfragen" },
+      "errors": { "name": "Fehler" },
+      "uptime": { "name": "Laufzeit" },
+      "memory": { "name": "Speichernutzung" },
+      "proxy_status": { "name": "Status" },
+      "latency": { "name": "Latenz" }
+    }
+  }
+}

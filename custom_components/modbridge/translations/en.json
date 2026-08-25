@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to ModBridge",
+        "description": "Connect Home Assistant to your ModBridge server.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "use_tls": "Use HTTPS",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Update ModBridge credentials",
+        "description": "Authentication with {host}:{port} failed. Please enter new credentials.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to ModBridge. Check host, port and the TLS setting.",
+      "invalid_auth": "Invalid credentials.",
+      "password_change_required": "This account must change its password first. Please log in to the ModBridge WebUI once and change it.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This ModBridge server is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ModBridge options",
+        "data": {
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "connectivity": {
+        "name": "Connectivity"
+      }
+    },
+    "button": {
+      "restart_server": {
+        "name": "Restart server"
+      },
+      "restart_all_proxies": {
+        "name": "Restart all proxies"
+      }
+    },
+    "sensor": {
+      "running_proxies": { "name": "Running proxies" },
+      "total_proxies": { "name": "Total proxies" },
+      "active_connections": { "name": "Active connections" },
+      "requests": { "name": "Requests" },
+      "errors": { "name": "Errors" },
+      "uptime": { "name": "Uptime" },
+      "memory": { "name": "Memory usage" },
+      "proxy_status": { "name": "Status" },
+      "latency": { "name": "Latency" }
+    }
+  }
+}
