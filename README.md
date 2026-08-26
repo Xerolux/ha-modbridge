@@ -1,12 +1,12 @@
 # ModBridge für Home Assistant
 
-![Version](https://img.shields.io/badge/version-v2.0.10.4-blue) ![License](https://img.shields.io/github/license/Xerolux/ha-modbridge.svg?style=flat-square)
+![Version](https://img.shields.io/badge/version-v2.0.10.16-blue) ![License](https://img.shields.io/github/license/Xerolux/ha-modbridge.svg?style=flat-square)
 
 **[English version below](#english)**
 
 Home-Assistant-Integration für [ModBridge](https://github.com/Xerolux/modbridge) — den Modbus-TCP-Proxy-Manager. Die Integration verbindet sich mit einem laufenden ModBridge-Server (Docker, systemd, beliebig im Netzwerk) und bringt alle Proxys, Statistiken und Steuerungsfunktionen direkt nach Home Assistant.
 
-> **Version:** v2.0.10.4 — diese Integration wird automatisch mit der Version des Original-ModBridge synchronisiert ([Sync-Workflow](.github/workflows/sync-version.yml)).
+> **Version:** v2.0.10.16 — diese Integration wird automatisch mit der Version des Original-ModBridge synchronisiert ([Sync-Workflow](.github/workflows/sync-version.yml)).
 
 ---
 
@@ -97,4 +97,4 @@ MIT — siehe [LICENSE](LICENSE).
 
 Home Assistant integration for [ModBridge](https://github.com/Xerolux/modbridge) — the Modbus TCP proxy manager. Connects to any running ModBridge server and exposes every proxy as a device with a start/stop switch plus status, request, error, connection, latency and uptime sensors. Server-level diagnostics, restart buttons and full service coverage (`start/stop/restart/pause/resume` per proxy, bulk actions, system restart) are included. Sessions are kept alive automatically with re-login and re-auth flows.
 
-**Version:** v2.0.10.4 — kept in lockstep with upstream ModBridge via a daily sync workflow.
+**Version:** v2.0.10.16 — kept in lockstep with upstream ModBridge via a daily sync workflow.

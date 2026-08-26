@@ -1,14 +1,18 @@
 {
   "domain": "modbridge",
   "name": "ModBridge",
-  "codeowners": ["@Xerolux"],
+  "codeowners": [
+    "@Xerolux"
+  ],
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/Xerolux/ha-modbridge",
   "integration_type": "hub",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/Xerolux/ha-modbridge/issues",
-  "loggers": ["modbridge"],
+  "loggers": [
+    "modbridge"
+  ],
   "requirements": [],
-  "version": "2.0.10.4"
+  "version": "2.0.10.16"
 }
